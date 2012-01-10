@@ -15,7 +15,7 @@ LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 void setup()
 {
-	lcd.init();
+	lcd.begin();
 	lcd.backlight();
 
 	lcd.createChar(0, bell);
@@ -31,7 +31,7 @@ void setup()
 	lcd.print("Hello world...");
 	lcd.setCursor(0, 1);
 	lcd.print(" i ");
-	lcd.print(3, BYTE);
+	lcd.write(3);
 	lcd.print(" arduinos!");
 	delay(5000);
 	displayKeyCodes();
@@ -50,7 +50,7 @@ void displayKeyCodes(void) {
 		lcd.setCursor(0, 1);
 
 		for (int j = 0; j < 16; j++) {
-			lcd.print(i + j, BYTE);
+			lcd.write(i + j);
 		}
 		i += 16;
 

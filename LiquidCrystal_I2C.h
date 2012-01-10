@@ -53,8 +53,8 @@
 
 class LiquidCrystal_I2C : public Print {
 public:
-	LiquidCrystal_I2C(uint8_t lcd_addr,uint8_t lcd_cols,uint8_t lcd_rows);
-	void begin(uint8_t cols, uint8_t rows, uint8_t charsize = LCD_5x8DOTS );
+	LiquidCrystal_I2C(uint8_t lcd_addr,uint8_t lcd_cols,uint8_t lcd_rows, uint8_t charsize = LCD_5x8DOTS);
+	void begin();
 	void clear();
 	void home();
 	void noDisplay();
@@ -79,7 +79,6 @@ public:
 	void setCursor(uint8_t, uint8_t); 
 	virtual size_t write(uint8_t);
 	void command(uint8_t);
-	void init();
 
 	inline void blink_on() { blink(); }
 	inline void blink_off() { noBlink(); }
@@ -103,7 +102,6 @@ public:
 	void draw_vertical_graph(uint8_t row, uint8_t column, uint8_t len,  uint8_t pixel_col_end);
 	 
 private:
-	void init_priv();
 	void send(uint8_t, uint8_t);
 	void write4bits(uint8_t);
 	void expanderWrite(uint8_t);
@@ -112,9 +110,9 @@ private:
 	uint8_t _displayfunction;
 	uint8_t _displaycontrol;
 	uint8_t _displaymode;
-	uint8_t _numlines;
 	uint8_t _cols;
 	uint8_t _rows;
+	uint8_t _dotsize;
 	uint8_t _backlightval;
 };
 

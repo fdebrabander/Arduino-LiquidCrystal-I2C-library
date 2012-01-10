@@ -7,7 +7,7 @@ LiquidCrystal_I2C lcd(0x27, 16, 2);
 void setup()
 {
 	// initialize the LCD
-	lcd.init();
+	lcd.begin();
 
 	// Turn on the blacklight and print a message.
 	lcd.backlight();
