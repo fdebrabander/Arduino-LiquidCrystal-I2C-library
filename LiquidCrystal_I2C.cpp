@@ -61,25 +61,24 @@ void LiquidCrystal_I2C::begin(uint8_t cols, uint8_t lines, uint8_t dotsize) {
 	expanderWrite(_backlightval);	// reset expanderand turn backlight off (Bit 8 =1)
 	delay(1000);
 
-  	//put the LCD into 4 bit mode
+	//put the LCD into 4 bit mode
 	// this is according to the hitachi HD44780 datasheet
 	// figure 24, pg 46
-	
-	  // we start in 8bit mode, try to set 4 bit mode
-   write4bits(0x03 << 4);
-   delayMicroseconds(4500); // wait min 4.1ms
-   
-   // second try
-   write4bits(0x03 << 4);
-   delayMicroseconds(4500); // wait min 4.1ms
-   
-   // third go!
-   write4bits(0x03 << 4); 
-   delayMicroseconds(150);
-   
-   // finally, set to 4-bit interface
-   write4bits(0x02 << 4); 
 
+	// we start in 8bit mode, try to set 4 bit mode
+	write4bits(0x03 << 4);
+	delayMicroseconds(4500); // wait min 4.1ms
+
+	// second try
+	write4bits(0x03 << 4);
+	delayMicroseconds(4500); // wait min 4.1ms
+
+	// third go!
+	write4bits(0x03 << 4); 
+	delayMicroseconds(150);
+
+	// finally, set to 4-bit interface
+	write4bits(0x02 << 4); 
 
 	// set # lines, font size, etc.
 	command(LCD_FUNCTIONSET | _displayfunction);  
@@ -98,10 +97,7 @@ void LiquidCrystal_I2C::begin(uint8_t cols, uint8_t lines, uint8_t dotsize) {
 	command(LCD_ENTRYMODESET | _displaymode);
 	
 	home();
-  
 }
-
-
 
 /********** high level commands, for the user! */
 void LiquidCrystal_I2C::clear(){
@@ -116,7 +112,7 @@ void LiquidCrystal_I2C::home(){
 
 void LiquidCrystal_I2C::setCursor(uint8_t col, uint8_t row){
 	int row_offsets[] = { 0x00, 0x40, 0x14, 0x54 };
-	if ( row > _numlines ) {
+	if (row > _numlines) {
 		row = _numlines-1;    // we count rows starting w/0
 	}
 	command(LCD_SETDDRAMADDR | (col + row_offsets[row]));
@@ -205,8 +201,6 @@ void LiquidCrystal_I2C::backlight(void) {
 	expanderWrite(0);
 }
 
-
-
 /*********** mid level commands, for sending data/cmds */
 
 inline void LiquidCrystal_I2C::command(uint8_t value) {
@@ -218,14 +212,13 @@ inline size_t LiquidCrystal_I2C::write(uint8_t value) {
 }
 
 
-
 /************ low level data pushing commands **********/
 
 // write either command or data
 void LiquidCrystal_I2C::send(uint8_t value, uint8_t mode) {
 	uint8_t highnib=value&0xf0;
 	uint8_t lownib=(value<<4)&0xf0;
-        write4bits((highnib)|mode);
+	write4bits((highnib)|mode);
 	write4bits((lownib)|mode); 
 }
 
@@ -249,13 +242,13 @@ void LiquidCrystal_I2C::pulseEnable(uint8_t _data){
 }
 
 void LiquidCrystal_I2C::load_custom_character(uint8_t char_num, uint8_t *rows){
-		createChar(char_num, rows);
+	createChar(char_num, rows);
 }
 
 void LiquidCrystal_I2C::setBacklight(uint8_t new_val){
-	if(new_val){
+	if (new_val) {
 		backlight();		// turn backlight on
-	}else{
+	} else {
 		noBacklight();		// turn backlight off
 	}
 }
