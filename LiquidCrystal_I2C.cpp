@@ -28,7 +28,7 @@ LiquidCrystal_I2C::LiquidCrystal_I2C(uint8_t lcd_addr, uint8_t lcd_cols, uint8_t
 	_cols = lcd_cols;
 	_rows = lcd_rows;
 	_charsize = charsize;
-	_backlightval = LCD_NOBACKLIGHT;
+	_backlightval = LCD_BACKLIGHT;
 }
 
 void LiquidCrystal_I2C::begin() {

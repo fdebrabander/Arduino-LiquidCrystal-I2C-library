@@ -2,8 +2,7 @@
 #define FDB_LIQUID_CRYSTAL_I2C_H
 
 #include <inttypes.h>
-#include "Print.h" 
-#include <Wire.h>
+#include <Print.h>
 
 // commands
 #define LCD_CLEARDISPLAY 0x01
