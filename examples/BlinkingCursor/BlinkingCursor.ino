@@ -8,7 +8,6 @@ void setup()
 {
 	// initialize the LCD
 	lcd.begin();
-	lcd.backlight();
 }
 
 void loop()
