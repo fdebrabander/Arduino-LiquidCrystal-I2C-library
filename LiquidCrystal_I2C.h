@@ -112,7 +112,7 @@ private:
 	uint8_t _displaymode;
 	uint8_t _cols;
 	uint8_t _rows;
-	uint8_t _dotsize;
+	uint8_t _charsize;
 	uint8_t _backlightval;
 };
 

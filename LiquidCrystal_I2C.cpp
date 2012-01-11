@@ -27,7 +27,7 @@ LiquidCrystal_I2C::LiquidCrystal_I2C(uint8_t lcd_addr, uint8_t lcd_cols, uint8_t
 	_addr = lcd_addr;
 	_cols = lcd_cols;
 	_rows = lcd_rows;
-	_dotsize = dotsize;
+	_charsize = charsize;
 	_backlightval = LCD_NOBACKLIGHT;
 }
 
@@ -40,7 +40,7 @@ void LiquidCrystal_I2C::begin() {
 	}
 
 	// for some 1 line displays you can select a 10 pixel high font
-	if ((_dotsize != 0) && (_rows == 1)) {
+	if ((_charsize != 0) && (_rows == 1)) {
 		_displayfunction |= LCD_5x10DOTS;
 	}
 
