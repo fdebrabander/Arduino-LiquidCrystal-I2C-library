@@ -88,17 +88,6 @@ public:
 	void setBacklight(uint8_t new_val);				// alias for backlight() and nobacklight()
 	void load_custom_character(uint8_t char_num, uint8_t *rows);	// alias for createChar()
 	void printstr(const char[]);
-
-// Unsupported API functions (not implemented in this library)
-	uint8_t status();
-	void setContrast(uint8_t new_val);
-	uint8_t keypad();
-	void setDelay(int,int);
-	void on();
-	void off();
-	uint8_t init_bargraph(uint8_t graphtype);
-	void draw_horizontal_graph(uint8_t row, uint8_t column, uint8_t len,  uint8_t pixel_col_end);
-	void draw_vertical_graph(uint8_t row, uint8_t column, uint8_t len,  uint8_t pixel_col_end);
 	 
 private:
 	void send(uint8_t, uint8_t);

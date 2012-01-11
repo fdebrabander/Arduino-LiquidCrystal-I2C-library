@@ -250,14 +250,3 @@ void LiquidCrystal_I2C::printstr(const char c[]){
 	//it's here so the user sketch doesn't have to be changed 
 	print(c);
 }
-
-// unsupported API functions
-void LiquidCrystal_I2C::off() {}
-void LiquidCrystal_I2C::on() {}
-void LiquidCrystal_I2C::setDelay (int cmdDelay,int charDelay) {}
-uint8_t LiquidCrystal_I2C::status(){return 0;}
-uint8_t LiquidCrystal_I2C::keypad (){return 0;}
-uint8_t LiquidCrystal_I2C::init_bargraph(uint8_t graphtype){return 0;}
-void LiquidCrystal_I2C::draw_horizontal_graph(uint8_t row, uint8_t column, uint8_t len,  uint8_t pixel_col_end){}
-void LiquidCrystal_I2C::draw_vertical_graph(uint8_t row, uint8_t column, uint8_t len,  uint8_t pixel_row_end){}
-void LiquidCrystal_I2C::setContrast(uint8_t new_val){}
