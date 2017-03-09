@@ -192,6 +192,10 @@ void LiquidCrystal_I2C::backlight(void) {
 	_backlightval=LCD_BACKLIGHT;
 	expanderWrite(0);
 }
+bool LiquidCrystal_I2C::getBacklight() {
+  return _backlightval == LCD_BACKLIGHT;
+}
+
 
 /*********** mid level commands, for sending data/cmds */
 
