@@ -129,6 +129,7 @@ public:
 	void shiftDecrement();
 	void noBacklight();
 	void backlight();
+	bool getBacklight();
 	void autoscroll();
 	void noAutoscroll();
 	void createChar(uint8_t, uint8_t[]);
