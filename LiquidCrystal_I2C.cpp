@@ -21,6 +21,9 @@
 // Note, however, that resetting the Arduino doesn't reset the LCD, so we
 // can't assume that its in that state when a sketch starts (and the
 // LiquidCrystal constructor is called).
+#ifndef WireBus
+#define WireBus Wire
+#endif
 
 LiquidCrystal_I2C::LiquidCrystal_I2C(uint8_t lcd_addr, uint8_t lcd_cols, uint8_t lcd_rows, uint8_t charsize)
 {
@@ -32,7 +35,7 @@ LiquidCrystal_I2C::LiquidCrystal_I2C(uint8_t lcd_addr, uint8_t lcd_cols, uint8_t
 }
 
 void LiquidCrystal_I2C::begin() {
-	Wire.begin();
+	WireBus.begin();
 	_displayfunction = LCD_4BITMODE | LCD_1LINE | LCD_5x8DOTS;
 
 	if (_rows > 1) {
@@ -225,9 +228,9 @@ void LiquidCrystal_I2C::write4bits(uint8_t value) {
 }
 
 void LiquidCrystal_I2C::expanderWrite(uint8_t _data){
-	Wire.beginTransmission(_addr);
-	Wire.write((int)(_data) | _backlightval);
-	Wire.endTransmission();
+	WireBus.beginTransmission(_addr);
+	WireBus.write((int)(_data) | _backlightval);
+	WireBus.endTransmission();
 }
 
 void LiquidCrystal_I2C::pulseEnable(uint8_t _data){
