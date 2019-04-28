@@ -32,10 +32,7 @@ LiquidCrystal_I2C::LiquidCrystal_I2C(uint8_t lcd_addr, uint8_t lcd_cols, uint8_t
 }
 
 void LiquidCrystal_I2C::begin() {
-
-	Wire.begin(I2C_MASTER, 0x01, I2C_PINS_18_19, I2C_PULLUP_EXT, 100000);
-	Wire.setDefaultTimeout(200000); 
-
+	Wire.begin();
 	_displayfunction = LCD_4BITMODE | LCD_1LINE | LCD_5x8DOTS;
 
 	if (_rows > 1) {
@@ -104,6 +101,12 @@ void LiquidCrystal_I2C::home(){
 	command(LCD_RETURNHOME);  // set cursor position to zero
 	delayMicroseconds(2000);  // this command takes a long time!
 }
+
+void LiquidCrystal_I2C::clearhome(){
+  this->clear();
+  this->home();
+}
+
 
 void LiquidCrystal_I2C::setCursor(uint8_t col, uint8_t row){
 	int row_offsets[] = { 0x00, 0x40, 0x14, 0x54 };
