@@ -1,7 +1,7 @@
 #include "LiquidCrystal_I2C.h"
 #include <inttypes.h>
 #include <Arduino.h>
-#include <Wire.h>
+#include <i2c_t3.h>
 
 // When the display powers up, it is configured as follows:
 //
@@ -32,7 +32,10 @@ LiquidCrystal_I2C::LiquidCrystal_I2C(uint8_t lcd_addr, uint8_t lcd_cols, uint8_t
 }
 
 void LiquidCrystal_I2C::begin() {
-	Wire.begin();
+
+	Wire.begin(I2C_MASTER, 0x01, I2C_PINS_18_19, I2C_PULLUP_EXT, 100000);
+	Wire.setDefaultTimeout(200000); 
+
 	_displayfunction = LCD_4BITMODE | LCD_1LINE | LCD_5x8DOTS;
 
 	if (_rows > 1) {
