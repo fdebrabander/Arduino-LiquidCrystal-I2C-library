@@ -1,12 +1,12 @@
 ###########################################
-# Syntax Coloring Map For LiquidCrystal_I2C
+# Syntax Coloring Map For LCD_I2C_Teensy36
 ###########################################
 
 ###########################################
 # Datatypes (KEYWORD1)
 ###########################################
 
-LiquidCrystal_I2C	KEYWORD1
+LCD_I2C_Teensy36	KEYWORD1
 
 ###########################################
 # Methods and Functions (KEYWORD2)
