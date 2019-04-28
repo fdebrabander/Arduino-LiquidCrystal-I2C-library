@@ -1,5 +1,5 @@
-#ifndef FDB_LIQUID_CRYSTAL_I2C_H
-#define FDB_LIQUID_CRYSTAL_I2C_H
+#ifndef DEJAN_I2C_LCD_T3
+#define DEJAN_I2C_LCD_T3
 
 #include <inttypes.h>
 #include <Print.h>
@@ -162,4 +162,4 @@ private:
 	uint8_t _backlightval;
 };
 
-#endif // FDB_LIQUID_CRYSTAL_I2C_H
+#endif // DEJAN_I2C_LCD_T3
