@@ -11,10 +11,10 @@ LiquidCrystal_I2C	KEYWORD1
 ###########################################
 # Methods and Functions (KEYWORD2)
 ###########################################
-init	KEYWORD2
 begin	KEYWORD2
 clear	KEYWORD2
 home	KEYWORD2
+clearhome KEYWORD2
 noDisplay	KEYWORD2
 display	KEYWORD2
 noBlink	KEYWORD2
