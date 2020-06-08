@@ -57,7 +57,7 @@
  * The backlight is on by default, since that is the most likely operating mode in
  * most cases.
  */
-class LiquidCrystal_I2C : public Print {
+class LiquidCrystal_I2C : public arduino::Print {
 public:
 	/**
 	 * Constructor
